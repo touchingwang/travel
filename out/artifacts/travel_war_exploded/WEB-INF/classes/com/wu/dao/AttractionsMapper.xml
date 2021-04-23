@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wu.dao.AttractionsMapper">
+
+    <select id="queryAttractions" resultType="Attractions">
+        select * from travel.attractions
+    </select>
+
+    <insert id="addAttractions" parameterType="Attractions">
+        insert into travel.attractions (attractionsId,attractionsName,attractionsAddress,openTime,closeTime,fares,cheapFares,cheapMessage)
+        values (#{attractionsId},#{attractionsName},#{attractionsAddress},#{openTime},#{closeTime},#{fares},#{cheapFares},#{cheapMessage});
+    </insert>
+
+    <select id="queryAttractionsById" resultType="Attractions">
+        select * from travel.attractions
+        where attractionsId=#{id}
+    </select>
+
+    <update id="updateAttractions" parameterType="Attractions">
+        update travel.attractions set openTime = #{openTime},closeTime = #{closeTime},fares = #{fares},cheapFares = #{cheapFares},cheapMessage = #{cheapMessage}
+        where attractionsId=#{attractionsId};
+    </update>
+
+    <delete id="deleteAttractionsById" parameterType="int">
+        delete from travel.attractions where attractionsId = #{id}
+    </delete>
+
+</mapper>

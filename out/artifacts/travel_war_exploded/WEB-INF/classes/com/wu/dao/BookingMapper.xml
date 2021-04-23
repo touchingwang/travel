@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wu.dao.BookingMapper">
+
+    <select id="queryAllBooking" resultType="Booking">
+        select * from travel.booking;
+    </select>
+
+    <insert id="addBooking" parameterType="Booking">
+        insert into travel.booking (bookingUser,bookingAttractionsName,bookingTime)
+        values (#{bookingUser},#{bookingAttractionsName},#{bookingTime});
+    </insert>
+
+</mapper>
